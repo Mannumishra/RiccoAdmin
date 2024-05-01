@@ -18,7 +18,7 @@ const UpdateMarque = () => {
 
   const getApiData = async () => {
     try {
-      let res = await axios.get("http://localhost:8000/api/marquee/" + _id)
+      let res = await axios.get("https://riccobackend.onrender.com/api/marquee/" + _id)
       setData(res.data.data)
     } catch (error) {
       console.log(error);
@@ -27,7 +27,7 @@ const UpdateMarque = () => {
   const postData = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.put("http://localhost:8000/api/marquee/" + _id, data);
+      const res = await axios.put("https://riccobackend.onrender.com/api/marquee/" + _id, data);
       console.log(res)
       if (res.status === 200) {
         toast.success("Marquee updated successfully");

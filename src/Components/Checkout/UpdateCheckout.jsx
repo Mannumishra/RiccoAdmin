@@ -12,13 +12,13 @@ const UpdateCheckout = () => {
 
   const getOrderApiData = async () => {
     try {
-      let res = await axios.get("http://localhost:8000/api/checkout/admin/" + _id)
+      let res = await axios.get("https://riccobackend.onrender.com/api/checkout/admin/" + _id)
       setData(res.data.data)
     } catch (error) { }
   }
   const getUserApiData = async () => {
     try {
-      let res = await axios.get("http://localhost:8000/api/user/" + data.userid)
+      let res = await axios.get("https://riccobackend.onrender.com/api/user/" + data.userid)
       setUser(res.data.data)
       setOrderStatus(data.orderstatus)
       setPaymentStatus(data.paymentstatus)
@@ -32,7 +32,7 @@ const UpdateCheckout = () => {
       setPaymentStatus(value)
   }
   const updateItem = async () => {
-    let res = await axios.put("http://localhost:8000/api/checkout/admin/" + _id, { ...data, orderstatus: orderstatus, paymentstatus: paymentstatus })
+    let res = await axios.put("https://riccobackend.onrender.com/api/checkout/admin/" + _id, { ...data, orderstatus: orderstatus, paymentstatus: paymentstatus })
     console.log(res);
   }
   useEffect(() => {
