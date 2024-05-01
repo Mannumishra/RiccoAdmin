@@ -27,6 +27,7 @@ import UpdateCheckout from './Components/Checkout/UpdateCheckout';
 import Category from './Components/Category/Category';
 import CreateCategory from './Components/Category/CreateCategory';
 import UpdateCategory from './Components/Category/UpdateCategory';
+import Login from './Components/Login/Login';
 
 
 function App() {
@@ -35,7 +36,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/home' element={<Home />} />
           <Route path='/banare' element={<Banare />} />
           <Route path='/createbanare' element={<CreateBanare />} />
           <Route path='/updatebanare/:_id' element={<UpdateBanare />} />
@@ -66,6 +67,8 @@ function App() {
           <Route path='/category' element ={<Category />} />
           <Route path='/createcategory' element={<CreateCategory />} />
           <Route path='/updatecategory/:_id' element={<UpdateCategory />} />
+
+          <Route path='/login' element={<Login />} />
         </Routes>
       <Footer />
       </BrowserRouter>
