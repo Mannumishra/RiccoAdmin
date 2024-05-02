@@ -19,6 +19,7 @@ function CreateProduct() {
         name: '',
         category: '',
         sizes: [{ size: '', price: '', discountprice: '', finalprice: '', stock: '' }],
+        productdetails: "",
         description: '',
         tag: '',
         pic1: '',
@@ -51,6 +52,7 @@ function CreateProduct() {
             formData.append("category", data.category);
             formData.append("stock", data.stock);
             formData.append("description", data.description);
+            formData.append("productdetails", data.productdetails);
             formData.append("tag", data.tag);
             formData.append("pic1", data.pic1);
             formData.append("pic2", data.pic2);
@@ -94,18 +96,13 @@ function CreateProduct() {
                             <label htmlFor="category">Select Category</label>
                             <select name="category" id="category" onChange={getInputData} className="form-control">
                                 <option disabled>Chose Category</option>
-                               {
-                                catedata.map((item,index)=>
-                                    <option key={index}>{item.name}</option>
-                                )
-                               }
+                                {
+                                    catedata.map((item, index) =>
+                                        <option key={index}>{item.name}</option>
+                                    )
+                                }
                             </select>
                         </div>
-                        {/* <div className="mb-3">
-                            <label htmlFor="category" className="form-label">Category:</label>
-                            <input type="text" id="category" name="category" onChange={getInputData} className="form-control" required />
-                        </div> */}
-
                         {data.sizes.map((size, index) => (
                             <div key={index} className="mb-3">
                                 <label htmlFor={`size${index + 1}`} className="form-label">Size {index + 1}:</label>
@@ -122,6 +119,10 @@ function CreateProduct() {
                         ))}
                         <button type="button" onClick={() => setData(prevData => ({ ...prevData, sizes: [...prevData.sizes, { size: '', price: '', discountprice: '', finalprice: '', stock: '' }] }))} className="btn btn-dark mb-3">Add Size</button>
 
+                        <div className="mb-3">
+                            <label htmlFor="description" className="form-label">Productdetail:</label>
+                            <textarea id="description" name="productdetails" rows="4" cols="50" onChange={getInputData} className="form-control"></textarea>
+                        </div>
                         <div className="mb-3">
                             <label htmlFor="description" className="form-label">Description:</label>
                             <textarea id="description" name="description" rows="4" cols="50" onChange={getInputData} className="form-control"></textarea>

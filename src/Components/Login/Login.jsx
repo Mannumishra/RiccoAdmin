@@ -22,7 +22,7 @@ const Login = () => {
     try {
       let res = await axios.post("https://riccobackend.onrender.com/api/user/login", data)
       console.log(res);
-      if (res.status === 200) {
+      if (res.data.data.role === "Admin") {
         sessionStorage.setItem("login", true)
         sessionStorage.setItem("userid", res.data.data._id)
         sessionStorage.setItem("name", res.data.data.name)
@@ -33,8 +33,8 @@ const Login = () => {
         navigate("/home")
         window.location.href("/home")
       }
-      else if (res.status === 401) {
-        toast.error("Email Id and password does not matched")
+      else if (res.data.data.role === "Buyer") {
+        toast.error("Anautorized Person")
       }
     } catch (error) {
     }

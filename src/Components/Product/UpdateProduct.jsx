@@ -21,6 +21,7 @@ function UpdateProduct() {
         category: '',
         sizes: [{ size: '', price: '', discountprice: '', finalprice: '', stock: '' }],
         description: '',
+        productdetails: "",
         tag: '',
         pic1: '',
         pic2: '',
@@ -61,6 +62,7 @@ function UpdateProduct() {
             formData.append("category", data.category);
             formData.append("stock", data.stock);
             formData.append("description", data.description);
+            formData.append("productdetails", data.productdetails);
             formData.append("tag", data.tag);
             formData.append("pic1", data.pic1);
             formData.append("pic2", data.pic2);
@@ -129,8 +131,14 @@ function UpdateProduct() {
                         <button type="button" onClick={() => setData(prevData => ({ ...prevData, sizes: [...prevData.sizes, { size: '', price: '', discountprice: '', finalprice: '', stock: '' }] }))} className="btn btn-dark mb-3">Add Size</button>
 
                         <div className="mb-3">
+                            <label htmlFor="description" className="form-label">Productdetails:</label>
+                            <textarea id="description" name="productdetails" rows="4" cols="50" onChange={getInputData} value={data.productdetails} className="form-control"></textarea>
+                        </div>
+
+
+                        <div className="mb-3">
                             <label htmlFor="description" className="form-label">Description:</label>
-                            <textarea id="description" name="description" rows="4" cols="50" onChange={getInputData} value={data.descriptionescription} className="form-control"></textarea>
+                            <textarea id="description" name="description" rows="4" cols="50" onChange={getInputData} value={data.description} className="form-control"></textarea>
                         </div>
 
                         <div className="mb-3">

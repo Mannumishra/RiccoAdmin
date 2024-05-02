@@ -48,6 +48,7 @@ const Product = () => {
                                         <th>Name</th>
                                         <th>Category</th>
                                         <th>Description</th>
+                                        <th>Productdetails</th>
                                         <th>Tag</th>
                                         <th>Image1</th>
                                         <th>Image2</th>
@@ -63,6 +64,7 @@ const Product = () => {
                                             <td>{item.name}</td>
                                             <td>{item.category}</td>
                                             <td>{item.description}</td>
+                                            <td>{item.productdetails}</td>
                                             <td>{item.tag}</td>
                                             <td>
                                                 <a href={item.pic1} target='_blank' rel="noopener noreferrer">
