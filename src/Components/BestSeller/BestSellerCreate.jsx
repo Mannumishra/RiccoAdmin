@@ -28,7 +28,11 @@ const BestSellerCreate = () => {
             formData.append("productName", data.productName);
             formData.append("image", data.image);
 
+<<<<<<< HEAD
             const res = await axios.post("https://riccobackend.onrender.co/api/bestseller", formData);
+=======
+            const res = await axios.post("http://localhost:8000/api/bestseller", formData);
+>>>>>>> c5d614f985aa9e2d5ac2825958f675f7b4bd9763
             console.log(res)
             if (res.status === 200) {
                 toast.success("Best Seller Product created successfully");

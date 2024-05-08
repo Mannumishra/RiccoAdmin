@@ -9,7 +9,11 @@ const Banare = () => {
 
     const getApiData = async () => {
         try {
+<<<<<<< HEAD
             const res = await axios.get("https://riccobackend.onrender.co/api/banare");
+=======
+            const res = await axios.get("http://localhost:8000/api/banare");
+>>>>>>> c5d614f985aa9e2d5ac2825958f675f7b4bd9763
             setData(res.data.data);
         } catch (error) {
             console.log(error);
@@ -18,7 +22,11 @@ const Banare = () => {
 
     const deleteRecord = async (_id) => {
         try {
+<<<<<<< HEAD
             const res = await axios.delete(`https://riccobackend.onrender.co/api/banare/${_id}`);
+=======
+            const res = await axios.delete(`http://localhost:8000/api/banare/${_id}`);
+>>>>>>> c5d614f985aa9e2d5ac2825958f675f7b4bd9763
             if (res.status === 200) {
                 toast.success("Banare Deleted Successfully");
             }

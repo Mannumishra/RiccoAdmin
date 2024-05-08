@@ -20,7 +20,11 @@ const Login = () => {
   const postData = async (e) => {
     e.preventDefault()
     try {
+<<<<<<< HEAD
       let res = await axios.post("https://riccobackend.onrender.co/api/user/login", data)
+=======
+      let res = await axios.post("http://localhost:8000/api/user/login", data)
+>>>>>>> c5d614f985aa9e2d5ac2825958f675f7b4bd9763
       console.log(res);
       if (res.data.data.role === "Admin") {
         sessionStorage.setItem("login", true)

@@ -9,7 +9,11 @@ function CreateProduct() {
     const [catedata, setCatedata] = useState([])
     const getApiData = async () => {
         try {
+<<<<<<< HEAD
             let res = await axios.get("https://riccobackend.onrender.co/api/category")
+=======
+            let res = await axios.get("http://localhost:8000/api/category")
+>>>>>>> c5d614f985aa9e2d5ac2825958f675f7b4bd9763
             setCatedata(res.data.data)
         } catch (error) {
             console.log(error);
@@ -65,7 +69,11 @@ function CreateProduct() {
                 formData.append(`sizes[${index}][finalprice]`, size.finalprice);
                 formData.append(`sizes[${index}][stock]`, size.stock);
             });
+<<<<<<< HEAD
             const res = await axios.post("https://riccobackend.onrender.co/api/product", formData);
+=======
+            const res = await axios.post("http://localhost:8000/api/product", formData);
+>>>>>>> c5d614f985aa9e2d5ac2825958f675f7b4bd9763
             console.log(res);
             if (res.status === 200) {
                 toast.success("New Product created")

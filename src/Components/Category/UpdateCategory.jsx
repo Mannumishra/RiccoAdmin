@@ -13,7 +13,11 @@ const UpdateCategory = () => {
     }
     const getApiData = async () => {
         try {
+<<<<<<< HEAD
             let res = await axios.get("https://riccobackend.onrender.co/api/category/" + _id)
+=======
+            let res = await axios.get("http://localhost:8000/api/category/" + _id)
+>>>>>>> c5d614f985aa9e2d5ac2825958f675f7b4bd9763
             console.log(res);
             setName(res.data.data)
         } catch (error) {
@@ -23,7 +27,11 @@ const UpdateCategory = () => {
     const postData = async (e) => {
         e.preventDefault()
         try {
+<<<<<<< HEAD
             let res = await axios.put("https://riccobackend.onrender.co/api/category/" + _id, { name: name })
+=======
+            let res = await axios.put("http://localhost:8000/api/category/" + _id, { name: name })
+>>>>>>> c5d614f985aa9e2d5ac2825958f675f7b4bd9763
             if (res.status === 200) {
                 toast.success("Product Category is created")
                 navigate("/category")
