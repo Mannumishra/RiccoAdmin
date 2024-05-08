@@ -29,7 +29,7 @@ const UpdateBestSeller = () => {
             formData.append("productName", data.productName);
             formData.append("image", data.image);
 
-            const res = await axios.put(`https://riccobackend.onrender.co/api/bestseller/`+_id, formData)
+            const res = await axios.put(`https://riccobackend.onrender.com/api/bestseller/`+_id, formData)
             console.log(res)
             if (res.status === 200) {
                 toast.success("Best Seller Update Successfully");
@@ -42,7 +42,7 @@ const UpdateBestSeller = () => {
 
     const getApiData = async () => {
         try {
-            const res = await axios.get(`https://riccobackend.onrender.co/api/bestseller/`+_id)
+            const res = await axios.get(`https://riccobackend.onrender.com/api/bestseller/`+_id)
             setData(res.data.data);
         } catch (error) {
             console.log(error);

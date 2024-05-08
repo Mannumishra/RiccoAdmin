@@ -7,7 +7,7 @@ const Contact = () => {
 
     const getApiData = async()=>{
         try {
-           let res = await axios.get("https://riccobackend.onrender.co/api/contact") 
+           let res = await axios.get("https://riccobackend.onrender.com/api/contact") 
            setData(res.data.data)
         } catch (error) {
             console.log(error);

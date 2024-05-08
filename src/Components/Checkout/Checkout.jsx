@@ -8,7 +8,7 @@ const Checkout = () => {
 
     const getApiData = async () => {
         try {
-            let res = await axios.get("https://riccobackend.onrender.co/api/checkout")
+            let res = await axios.get("https://riccobackend.onrender.com/api/checkout")
             setData(res.data.data)
         } catch (error) {
 
