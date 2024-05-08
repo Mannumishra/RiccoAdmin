@@ -9,7 +9,7 @@ const Product = () => {
 
     const getApiData = async () => {
         try {
-            let res = await axios.get("https://riccobackend.onrender.com/api/product")
+            let res = await axios.get("https://riccobackend.onrender.co/api/product")
             setData(res.data.data)
         } catch (error) {
             console.log(error);
@@ -17,7 +17,7 @@ const Product = () => {
     }
     const deleteRecord = async (_id) => {
         try {
-            let res = await axios.delete("https://riccobackend.onrender.com/api/product/" + _id)
+            let res = await axios.delete("https://riccobackend.onrender.co/api/product/" + _id)
             if (res.status === 200) {
                 toast.success("Product deleted successfully")
                 getApiData()

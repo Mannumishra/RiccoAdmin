@@ -8,7 +8,7 @@ const BestSeller = () => {
 
     const getApiData = async () => {
         try {
-            const res = await axios.get("https://riccobackend.onrender.com/api/bestseller");
+            const res = await axios.get("https://riccobackend.onrender.co/api/bestseller");
             setData(res.data.data);
         } catch (error) {
             console.log(error);
@@ -17,7 +17,7 @@ const BestSeller = () => {
 
     const deleteRecord = async (_id) => {
         try {
-            const res = await axios.delete(`https://riccobackend.onrender.com/api/bestseller/`+_id);
+            const res = await axios.delete(`https://riccobackend.onrender.co/api/bestseller/`+_id);
             if (res.status === 200) {
                 getApiData(); // Refresh data after deletion
             }
