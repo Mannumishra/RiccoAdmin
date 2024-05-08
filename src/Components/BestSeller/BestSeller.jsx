@@ -21,11 +21,7 @@ const BestSeller = () => {
 
     const deleteRecord = async (_id) => {
         try {
-<<<<<<< HEAD
             const res = await axios.delete(`https://riccobackend.onrender.co/api/bestseller/`+_id);
-=======
-            const res = await axios.delete(`http://localhost:8000/api/bestseller/`+_id);
->>>>>>> c5d614f985aa9e2d5ac2825958f675f7b4bd9763
             if (res.status === 200) {
                 getApiData(); // Refresh data after deletion
             }
