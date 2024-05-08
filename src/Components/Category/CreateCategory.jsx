@@ -13,11 +13,7 @@ const CreateCategory = () => {
     const postData = async (e) => {
         e.preventDefault()
         try {
-<<<<<<< HEAD
             let res = await axios.post("https://riccobackend.onrender.co/api/category", { name: name })
-=======
-            let res = await axios.post("http://localhost:8000/api/category", { name: name })
->>>>>>> c5d614f985aa9e2d5ac2825958f675f7b4bd9763
             if (res.status === 200) {
                 toast.success("Product Category is created")
                 navigate("/category")

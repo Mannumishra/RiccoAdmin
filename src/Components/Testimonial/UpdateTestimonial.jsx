@@ -31,11 +31,7 @@ const UpdateTestimonial = () => {
     const postData = async (e) => {
         e.preventDefault();
         try {
-<<<<<<< HEAD
             const res = await axios.put(`https://riccobackend.onrender.co/api/testimonial/${_id}`, formData);
-=======
-            const res = await axios.put(`http://localhost:8000/api/testimonial/${_id}`, formData);
->>>>>>> c5d614f985aa9e2d5ac2825958f675f7b4bd9763
             if (res.status === 200) {
                 toast.success("Testimonial Updated Successfully");
                 navigate("/testimonial");
@@ -47,11 +43,7 @@ const UpdateTestimonial = () => {
 
     const getApiData = async () => {
         try {
-<<<<<<< HEAD
             const res = await axios.get(`https://riccobackend.onrender.co/api/testimonial/${_id}`);
-=======
-            const res = await axios.get(`http://localhost:8000/api/testimonial/${_id}`);
->>>>>>> c5d614f985aa9e2d5ac2825958f675f7b4bd9763
             setData(res.data.data);
         } catch (error) {
             console.log(error);
@@ -63,7 +55,7 @@ const UpdateTestimonial = () => {
     }, []);
 
     return (
-        <div className="container-fluid"  style={{marginTop:80}}>
+        <div className="container-fluid" style={{ marginTop: 80 }}>
             <div className="row">
                 <div className="col-md-3">
                     <Sidebar />

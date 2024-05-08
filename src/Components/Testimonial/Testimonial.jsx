@@ -25,11 +25,7 @@ const Testimonial = () => {
 
     const getApiData = async () => {
         try {
-<<<<<<< HEAD
             const res = await axios.get("https://riccobackend.onrender.co/api/testimonial");
-=======
-            const res = await axios.get("http://localhost:8000/api/testimonial");
->>>>>>> c5d614f985aa9e2d5ac2825958f675f7b4bd9763
             setData(res.data.data);
         } catch (error) {
             console.log(error);

@@ -8,11 +8,7 @@ const BestSeller = () => {
 
     const getApiData = async () => {
         try {
-<<<<<<< HEAD
-            const res = await axios.get("https://riccobackend.onrender.co/api/bestseller");
-=======
-            const res = await axios.get("http://localhost:8000/api/bestseller");
->>>>>>> c5d614f985aa9e2d5ac2825958f675f7b4bd9763
+            const res = await axios.get("https://riccobackend.onrender.co/api/bestseller")
             setData(res.data.data);
         } catch (error) {
             console.log(error);
