@@ -18,7 +18,7 @@ const CreateMarque = () => {
   const postData = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("https://riccobackend.onrender.com/api/marquee", data);
+      const res = await axios.post("http://localhost:8000/api/marquee", data);
       console.log(res)
       if (res.status === 200) {
         toast.success("Marquee created successfully");

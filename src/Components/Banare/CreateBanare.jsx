@@ -21,7 +21,7 @@ const CreateBanare = () => {
   const postData = async (e) => {
     e.preventDefault();
     try {
-      let res = await axios.post("https://riccobackend.onrender.com/api/banare", formData);
+      let res = await axios.post("http://localhost:8000/api/banare", formData);
       console.log(res)
       if (res.status === 200) {
         toast.success("Banare Created Successfully");
