@@ -9,11 +9,7 @@ function CreateProduct() {
     const [catedata, setCatedata] = useState([])
     const getApiData = async () => {
         try {
-<<<<<<< HEAD
             let res = await axios.get("https://riccobackend.onrender.com/api/category")
-=======
-            let res = await axios.get("http://localhost:8000/api/category")
->>>>>>> c5d614f985aa9e2d5ac2825958f675f7b4bd9763
             setCatedata(res.data.data)
         } catch (error) {
             console.log(error);

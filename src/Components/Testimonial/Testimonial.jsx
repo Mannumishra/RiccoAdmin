@@ -9,11 +9,7 @@ const Testimonial = () => {
 
     const deleteRecord = async (_id) => {
         try {
-<<<<<<< HEAD
-            const res = await axios.delete(`https://riccobackend.onrender.com/api/testimonial/${_id}`);
-=======
-            const res = await axios.delete(`http://localhost:8000/api/testimonial/${_id}`);
->>>>>>> c5d614f985aa9e2d5ac2825958f675f7b4bd9763
+            const res = await axios.delete(`https://riccobackend.onrender.com/api/testimonial/${_id}`)
             if (res.status === 200) {
                 toast.success("Testimonial Deleted Successfully");
                 getApiData();

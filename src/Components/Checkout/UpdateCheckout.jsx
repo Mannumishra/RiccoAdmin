@@ -1,39 +1,47 @@
 import React, { useEffect, useState } from 'react'
 import Sidebar from '../Sidebar'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 
 const UpdateCheckout = () => {
+  const navigate = useNavigate()
   let { _id } = useParams()
-  let [data, setData] = useState([])
+  let [data, setData] = useState({})
   let [user, setUser] = useState({})
-  let [orderstatus, setOrderStatus] = useState("")
-  let [paymentstatus, setPaymentStatus] = useState("")
+  let [orderstatus, setOrderstatus] = useState("")
+  let [paymentstatus, setPaymentstatus] = useState("")
 
   const getOrderApiData = async () => {
     try {
-      let res = await axios.get("https://riccobackend.onrender.com/api/checkout/admin/" + _id)
+      let res = await axios.get(`https://riccobackend.onrender.com/api/checkout/admin/${_id}`)
+      console.log(res);
       setData(res.data.data)
     } catch (error) { }
   }
   const getUserApiData = async () => {
     try {
-      let res = await axios.get("https://riccobackend.onrender.com/api/user/" + data.userid)
+      alert(data)
+      let res = await axios.get(`https://riccobackend.onrender.com/api/user/${data.userid}`)
+      console.log(res);
       setUser(res.data.data)
-      setOrderStatus(data.orderstatus)
-      setPaymentStatus(data.paymentstatus)
+      setOrderstatus(data.orderstatus)
+      setPaymentstatus(data.paymentstatus)
     } catch (error) { }
   }
   const getInputData = (e) => {
-    var { name, value } = e.target
+    const { name, value } = e.target
     if (name === "orderstatus")
-      setOrderStatus(value)
-    else
-      setPaymentStatus(value)
+      {
+        setOrderstatus(value)
+      }
+    else 
+    setPaymentstatus(value)
   }
   const updateItem = async () => {
     let res = await axios.put("https://riccobackend.onrender.com/api/checkout/admin/" + _id, { ...data, orderstatus: orderstatus, paymentstatus: paymentstatus })
-    console.log(res);
+    if (res.status === 200) {
+      navigate("/order")
+    }
   }
   useEffect(() => {
     getOrderApiData()
@@ -47,7 +55,7 @@ const UpdateCheckout = () => {
             <Sidebar />
           </div>
           <div className="col-md-9">
-            <h4 className="mt-1">Update Checkout</h4>
+            <h4 className="mt-1">Update Order Status</h4>
             <table className='table table-bordered table-striped table-hover'>
               <tbody>
                 <tr>
@@ -73,6 +81,7 @@ const UpdateCheckout = () => {
                     {
                       data.orderstatus !== "Delivered" ?
                         <select onChange={getInputData} value={orderstatus} name="orderstatus" className='form-select mt-3'>
+                          <option value="select Order Starus" disabled>Select Order status</option>
                           <option value="Order is Placed">Order is Placed</option>
                           <option value="Packed">Packed</option>
                           <option value="Ready to Ship">Ready to Ship</option>
@@ -96,6 +105,7 @@ const UpdateCheckout = () => {
                     {
                       data.paymentstatus !== "Done" ?
                         <select onChange={getInputData} value={paymentstatus} name="paymentstatus" className='form-select mt-3'>
+
                           <option value="Pending">Pending</option>
                           <option value="Done">Done</option>
                         </select> : ''
@@ -129,7 +139,6 @@ const UpdateCheckout = () => {
                   <tr>
                     <th></th>
                     <th>Name</th>
-                    <th>Brand</th>
                     <th>Size</th>
                     <th>Price</th>
                     <th>QTY</th>
@@ -144,7 +153,6 @@ const UpdateCheckout = () => {
                           </a>
                         </td>
                         <td>{item.productname}</td>
-                        <td>{item.brand}</td>
                         <td>{item.size}</td>
                         <td>&#8377;{item.price}</td>
                         <td>{item.quantity}</td>

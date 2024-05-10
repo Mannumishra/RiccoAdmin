@@ -14,7 +14,7 @@ const Sidebar = () => {
                 <Link to="/testimonial" className="list-group-item list-group-item-action list-group-item-dark">Testimonial</Link>
                 <Link to="/contact" className="list-group-item list-group-item-action list-group-item-warning">Contact</Link>
                 <Link to="/newsletter" className="list-group-item list-group-item-action list-group-item-info">Newsletter</Link>
-                <Link to="/checkout" className="list-group-item list-group-item-action list-group-item-danger">Checkout</Link>
+                <Link to="/order" className="list-group-item list-group-item-action list-group-item-danger">Order Section</Link>
                 {/* <Link to="/" className="list-group-item list-group-item-action list-group-item-dark"></Link> */}
             </div>
         </>
