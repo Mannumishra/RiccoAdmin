@@ -11,31 +11,32 @@ const UpdateCheckout = () => {
   let [orderstatus, setOrderstatus] = useState("")
   let [paymentstatus, setPaymentstatus] = useState("")
 
-  const getOrderApiData = async () => {
-    try {
-      let res = await axios.get(`https://riccobackend.onrender.com/api/checkout/admin/${_id}`)
-      console.log(res);
-      setData(res.data.data)
-    } catch (error) { }
-  }
-  const getUserApiData = async () => {
-    try {
-      alert(data)
-      let res = await axios.get(`https://riccobackend.onrender.com/api/user/${data.userid}`)
-      console.log(res);
-      setUser(res.data.data)
-      setOrderstatus(data.orderstatus)
-      setPaymentstatus(data.paymentstatus)
-    } catch (error) { }
-  }
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`https://riccobackend.onrender.com/api/checkout/admin/${_id}`);
+        console.log(response)
+        setData(response.data.data);
+        setOrderstatus(response.data.data.orderstatus);
+        setPaymentstatus(response.data.data.paymentstatus);
+        const userResponse = await axios.get(`https://riccobackend.onrender.com/api/user/${response.data.data.userid}`);
+        console.log(response)
+        setUser(userResponse.data.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+    if (_id) {
+      fetchData();
+    }
+  }, [_id]);
   const getInputData = (e) => {
     const { name, value } = e.target
-    if (name === "orderstatus")
-      {
-        setOrderstatus(value)
-      }
-    else 
-    setPaymentstatus(value)
+    if (name === "orderstatus") {
+      setOrderstatus(value)
+    }
+    else
+      setPaymentstatus(value)
   }
   const updateItem = async () => {
     let res = await axios.put("https://riccobackend.onrender.com/api/checkout/admin/" + _id, { ...data, orderstatus: orderstatus, paymentstatus: paymentstatus })
@@ -43,10 +44,8 @@ const UpdateCheckout = () => {
       navigate("/order")
     }
   }
-  useEffect(() => {
-    getOrderApiData()
-    getUserApiData()
-  }, [])
+
+
   return (
     <>
       <div className="container-fluid" style={{ marginTop: 80 }}>

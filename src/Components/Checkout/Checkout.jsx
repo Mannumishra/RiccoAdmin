@@ -9,7 +9,7 @@ const Checkout = () => {
     const getApiData = async () => {
         try {
             let res = await axios.get("https://riccobackend.onrender.com/api/checkout")
-            // console.log(res)
+            console.log(res)
             setData(res.data.data)
         } catch (error) {  }
     }
