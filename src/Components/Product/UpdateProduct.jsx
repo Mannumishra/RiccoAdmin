@@ -10,7 +10,7 @@ function UpdateProduct() {
     const [catedata, setCatedata] = useState([])
     const getApiCateData = async () => {
         try {
-            let res = await axios.get("https://riccobackend.onrender.comm/api/category")
+            let res = await axios.get("https://api.myriccoproducts.comm/api/category")
             setCatedata(res.data.data)
         } catch (error) {
             console.log(error);
@@ -47,7 +47,7 @@ function UpdateProduct() {
 
     const getApiData = async () => {
         try {
-            let res = await axios.get("https://riccobackend.onrender.comm/api/product/" + _id)
+            let res = await axios.get("https://api.myriccoproducts.comm/api/product/" + _id)
             console.log(res);
             setData(res.data.data)
         } catch (error) {
@@ -75,7 +75,7 @@ function UpdateProduct() {
                 formData.append(`sizes[${index}][finalprice]`, size.finalprice);
                 formData.append(`sizes[${index}][stock]`, size.stock);
             });
-            const res = await axios.put("https://riccobackend.onrender.comm/api/product/" + _id, formData);
+            const res = await axios.put("https://api.myriccoproducts.comm/api/product/" + _id, formData);
             if (res.status === 200) {
                 toast.success("Product Updated created")
                 navigate("/product")
@@ -95,7 +95,7 @@ function UpdateProduct() {
                     <Sidebar />
                 </div>
                 <div className="col-md-9">
-                    <h1 className="mt-5">Add Product</h1>
+                    <h1 className="mt-5">Update Product</h1>
                     <form onSubmit={postData} className="mt-4">
                         <div className="mb-3">
                             <label htmlFor="name" className="form-label">Product Name:</label>

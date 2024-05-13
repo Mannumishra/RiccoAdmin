@@ -20,8 +20,8 @@ const Login = () => {
   const postData = async (e) => {
     e.preventDefault()
     try {
-      let res = await axios.post("https://riccobackend.onrender.com/api/user/login", data)
-      console.log(res);
+      let res = await axios.post("https://api.myriccoproducts.com/api/user/login", data)
+      console.log(res)
       if (res.data.data.role === "Admin") {
         sessionStorage.setItem("login", true)
         sessionStorage.setItem("userid", res.data.data._id)
@@ -31,12 +31,13 @@ const Login = () => {
         sessionStorage.setItem("token", res.data.token)
         toast.success("Login sucessfully")
         navigate("/home")
-        window.location.href("/home")
+        window.location.href = '/home'
       }
-      else if (res.data.data.role === "Buyer") {
-        toast.error("Anautorized Person")
+      else {
+        
       }
     } catch (error) {
+      toast.error("invaild username or password")
     }
   }
 

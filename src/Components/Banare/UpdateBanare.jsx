@@ -21,7 +21,7 @@ const UpdateBanare = () => {
 
   const getApiData = async () => {
     try {
-      const res = await axios.get(`https://riccobackend.onrender.com/api/banare/${_id}`)
+      const res = await axios.get(`https://api.myriccoproducts.com/api/banare/${_id}`)
       setData(res.data.data);
     } catch (error) {
       console.log(error);
@@ -31,7 +31,7 @@ const UpdateBanare = () => {
   const postData = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.put(`https://riccobackend.onrender.com/api/banare/${_id}`, formData)
+      const res = await axios.put(`https://api.myriccoproducts.com/api/banare/${_id}`, formData)
       if (res.status === 200) {
         toast.success('Banare Updated successfully');
         navigate('/banare');

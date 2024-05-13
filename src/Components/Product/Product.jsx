@@ -9,7 +9,7 @@ const Product = () => {
 
     const getApiData = async () => {
         try {
-            let res = await axios.get("https://riccobackend.onrender.com/api/product")
+            let res = await axios.get("https://api.myriccoproducts.com/api/product")
             setData(res.data.data)
         } catch (error) {
             console.log(error);
@@ -17,7 +17,7 @@ const Product = () => {
     }
     const deleteRecord = async (_id) => {
         try {
-            let res = await axios.delete("https://riccobackend.onrender.com/api/product/" + _id)
+            let res = await axios.delete("https://api.myriccoproducts.com/api/product/" + _id)
             if (res.status === 200) {
                 toast.success("Product deleted successfully")
                 getApiData()
@@ -45,6 +45,7 @@ const Product = () => {
                             <table className='table table-bordered'>
                                 <thead>
                                     <tr>
+                                        <th>S.No.</th>
                                         <th>Name</th>
                                         <th>Category</th>
                                         <th>Description</th>
@@ -61,6 +62,7 @@ const Product = () => {
                                 <tbody>
                                     {data && data.map((item, index) => (
                                         <tr key={index}>
+                                            <td>{index+1}</td>
                                             <td>{item.name}</td>
                                             <td>{item.category}</td>
                                             <td>{item.description}</td>

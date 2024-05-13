@@ -7,7 +7,7 @@ const Newsletter = () => {
     const [data, setData] = useState([])
     const deleteRecord = async (_id) => {
         try {
-            let res = await axios.delete("https://riccobackend.onrender.com/api/newsletter/" + _id)
+            let res = await axios.delete("https://api.myriccoproducts.com/api/newsletter/" + _id)
             console.log(res);
             if (res.status === 200)
                 toast.success("Newsletter Deleted Successfully")
@@ -18,7 +18,7 @@ const Newsletter = () => {
     }
     const getApiData = async () => {
         try {
-            let res = await axios.get("https://riccobackend.onrender.com/api/newsletter")
+            let res = await axios.get("https://api.myriccoproducts.com/api/newsletter")
             setData(res.data.data)
         } catch (error) {
             console.log(error);

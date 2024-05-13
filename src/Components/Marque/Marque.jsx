@@ -8,7 +8,7 @@ const Marque = () => {
     const [data, setData] = useState([])
     const deleteRecord = async (_id) => {
         try {
-            let res = await axios.delete("https://riccobackend.onrender.com/api/marquee/" + _id)
+            let res = await axios.delete("https://api.myriccoproducts.com/api/marquee/" + _id)
             console.log(res);
             if (res.status === 200)
                 toast.success("Marquee Deleted Successfully")
@@ -19,7 +19,7 @@ const Marque = () => {
     }
     const getApiData = async () => {
         try {
-            let res = await axios.get("https://riccobackend.onrender.com/api/marquee")
+            let res = await axios.get("https://api.myriccoproducts.com/api/marquee")
             setData(res.data.data)
         } catch (error) {
             console.log(error);

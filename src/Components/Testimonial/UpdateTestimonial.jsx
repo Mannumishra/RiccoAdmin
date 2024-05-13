@@ -31,7 +31,7 @@ const UpdateTestimonial = () => {
     const postData = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.put(`https://riccobackend.onrender.com/api/testimonial/${_id}`, formData);
+            const res = await axios.put(`https://api.myriccoproducts.com/api/testimonial/${_id}`, formData);
             if (res.status === 200) {
                 toast.success("Testimonial Updated Successfully");
                 navigate("/testimonial");
@@ -43,7 +43,7 @@ const UpdateTestimonial = () => {
 
     const getApiData = async () => {
         try {
-            const res = await axios.get(`https://riccobackend.onrender.com/api/testimonial/${_id}`);
+            const res = await axios.get(`https://api.myriccoproducts.com/api/testimonial/${_id}`);
             setData(res.data.data);
         } catch (error) {
             console.log(error);
@@ -61,7 +61,7 @@ const UpdateTestimonial = () => {
                     <Sidebar />
                 </div>
                 <div className="col-md-9">
-                    <h2 className='bg-primary p-2 text-light text-center'>Update Testimonial</h2>
+                    <h2 className='bg-dark p-2 text-light text-center'>Update Testimonial</h2>
                     <div className="form-container">
                         <form onSubmit={postData}>
                             <label htmlFor="">Name</label>
@@ -69,8 +69,8 @@ const UpdateTestimonial = () => {
                             <label htmlFor="">Message</label>
                             <input type="text" name="message" id="" className='form-control' onChange={getInputData} value={data.message} />
                             <label htmlFor="">Image</label>
-                            <input type="file" name="image" id="" onChange={getFileData} /><br />
-                            <button className='btn btn-success mt-2'>Update Testimonial</button>
+                            <input type="file" name="image" id=""  className="form-control"onChange={getFileData} /><br />
+                            <button className='btn btn-dark mt-2'>Update Testimonial</button>
                         </form>
                     </div>
                 </div>

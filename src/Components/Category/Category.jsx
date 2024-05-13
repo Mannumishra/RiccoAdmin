@@ -8,7 +8,7 @@ const Category = () => {
     const [data, setData] = useState([])
     const getApiData = async () => {
         try {
-            let res = await axios.get("https://riccobackend.onrender.com/api/category")
+            let res = await axios.get("https://api.myriccoproducts.com/api/category")
             setData(res.data.data)
         } catch (error) {
             console.log(error);
@@ -16,7 +16,7 @@ const Category = () => {
     }
     const deleteRecord = async (_id) => {
         try {
-            let res = await axios.delete("https://riccobackend.onrender.com/api/category/" + _id)
+            let res = await axios.delete("https://api.myriccoproducts.com/api/category/" + _id)
             if (res.status === 200) {
                 toast.success("Category Deletd Succssfully")
             }
