@@ -38,7 +38,7 @@ const Testimonial = () => {
                 <div className="col-md-3">
                     <Sidebar />
                 </div>
-                <div className="col-md-9">
+                <div className="col-md-9 mb-5">
                     <div style={{ display: "flex", justifyContent: "space-between" }}>
                         <h2>Testimonials</h2>
                         <Link to='/createtestimonial' className='btn btn-dark'>Create Testimonial</Link>

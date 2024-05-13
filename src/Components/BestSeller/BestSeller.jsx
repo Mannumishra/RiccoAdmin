@@ -37,7 +37,7 @@ const BestSeller = () => {
                     <div className="col-md-3">
                         <Sidebar />
                     </div>
-                    <div className="col-md-9">
+                    <div className="col-md-9 mb-5">
                         <div style={{ display: "flex", justifyContent: "space-between" }}>
                             <h2>Best Seller Product</h2>
                             <span><Link to='/createbestseller' className='btn btn-dark'>Create Best Seller</Link></span>
